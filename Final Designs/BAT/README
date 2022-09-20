@@ -1,0 +1,15 @@
+There are two threat models: with oracle and with no oracle.
+
+For "with oracle" mode, the attacker can access both the locked design netlist and oracle.
+For "with no oracle" mode, the attack can access only the locked design netlist.
+
+1. The locked circuits are in directory ./locked_circuit/ in BENCH format.
+	a. The key inputs names are in format of "keyinput_<index>"
+	b. The rest inputs are primary inputs
+2. (With oracle mode only) The original circuits are in direcotory ./original_circuit/ as executable binary files.
+  If the original circuit has 10 input bits, then the way to execute the oracle is
+	e.g.,	./<oracle_name> 1 0 1 0 1 0 1 0 1 0
+	a. The first part is the path to the specific oracle
+	b. The rest part is the input pattern in binary, each bit is separate with " " (an empty space)
+	c. The output of the oracle is the output values for given input pattern
+3. There are 3 locked designs, sharing with the different oracles (with oracle model only) as shown in ./original_circuit/ directory.
